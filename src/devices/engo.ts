@@ -775,7 +775,8 @@ export const definitions: DefinitionWithExtend[] = [
             tuyaDatapoints: [
                 [1, "state", tuya.valueConverter.onOff],
                 [2, "system_mode", tuya.valueConverterBasic.lookup({heat: tuya.enum(0), cool: tuya.enum(1)})],
-                [3, "running_state", tuya.valueConverterBasic.lookup({heat: tuya.enum(1), idle: tuya.enum(2)})],
+                // 5 is reported while comfort warm floor heats
+                [3, "running_state", tuya.valueConverterBasic.lookup({heat: tuya.enum(1), idle: tuya.enum(2)}, "heat")],
                 [16, "current_heating_setpoint", tuya.valueConverter.divideBy10],
                 [19, "max_temperature", tuya.valueConverter.divideBy10],
                 [24, "local_temperature", tuya.valueConverter.divideBy10],
